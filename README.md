@@ -45,4 +45,4 @@ LarkSR 支持 HTTPS 部署。在具体项目中如果使用了自签名的证书
 
 ### 效果
 
-![效果](./Simulator Screen Shot - iPhone 12 mini - 2021-09-23 at 18.18.20.png)
+![效果](./ScreenShot.png)
