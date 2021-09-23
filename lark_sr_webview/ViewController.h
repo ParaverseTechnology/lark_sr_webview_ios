@@ -6,9 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 @interface ViewController : UIViewController
 
-
+{
+    UIWebView *ui_webview_;
+    WKWebView *wk_webview_;
+}
 @end
 
