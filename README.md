@@ -44,7 +44,3 @@ Setup WKNavigationDelegate
     }
 }
 ```
-
-### Run
-
-![Run](./ScreenShot.png)
