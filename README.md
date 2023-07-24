@@ -1,39 +1,41 @@
 # LarkSR - ios wkwebview demo
 
-本项目演示在 ios webview 中嵌入 LarkSR Web 客户端
+Show ios webview open LarkSR Web client.
 
-[平行云](https://www.pingxingyun.com/)
+Links：
 
-[平行云-Lark开发者中心下载](https://www.pingxingyun.com/devCenter.html)
+[Paraverse](https://www.paraverse.cc/)
 
-## 主要代码
+[LarkSR Doc](https://www.pingxingyun.com/devCenter.html)
 
-### 要注意使用 WKWebView 而非 UIWebView
+[Experience](https://www.paraverse.cc/)
 
-### WKWebView 关键配置项
+## Code
+
+### notice: use WKWebView not UIWebView
+
+### WKWebView Config
 
 ```oc
-//创建网页配置对象
+// create config
 WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
 
-// 必要设置，可以 lark 视频层和 ui 层能正确展示
+// request, makesure play video inline mode.
 config.allowsInlineMediaPlayback = YES;
 
-// 必要设置，设置视频是否需要用户手动播放。不设置可能出现 5/5 视频不播放的问题
+// requst, auto play video
 config.requiresUserActionForMediaPlayback = NO;
 config.mediaTypesRequiringUserActionForPlayback = NO;
 ```
 
-完整配置项请参考 Demo 中源码
+### Ignore certificate verification
 
-### 忽略证书验证
+LarkSR support HTTPS, but if a self-signed certificate load failed, can igonre certificate verification
 
-LarkSR 支持 HTTPS 部署。在具体项目中如果使用了自签名的证书出现访问失败的问题，可参考下面代码忽略证书验证
-
-设置 WKNavigationDelegate 代理
+Setup WKNavigationDelegate
 
 ```oc
-// 忽略证书验证
+// Ignore certificate verification
 -(void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential))completionHandler{
     
     if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
@@ -43,6 +45,6 @@ LarkSR 支持 HTTPS 部署。在具体项目中如果使用了自签名的证书
 }
 ```
 
-### 效果
+### Run
 
-![效果](./ScreenShot.png)
+![Run](./ScreenShot.png)
